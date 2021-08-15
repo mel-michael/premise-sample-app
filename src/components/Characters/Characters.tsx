@@ -10,6 +10,7 @@ import { ReactComponent as AliveIcon } from '../../assets/alive.svg';
 
 import { Status, Character } from './types';
 
+// TODO: USe .env
 const API_URL = 'https://www.breakingbadapi.com/api';
 
 const Characters: React.FC<RouteComponentProps> = () => {
@@ -64,7 +65,7 @@ const Characters: React.FC<RouteComponentProps> = () => {
 
   return (
     <div className="container pt-3">
-      <header>
+      <header className="my-4">
         <h3>The Breaking Bad TV Series</h3>
       </header>
       <div className="row">
@@ -87,10 +88,10 @@ const Characters: React.FC<RouteComponentProps> = () => {
       <div className="row pb-6">
         <h5 className="m-3 p-0">All Characters</h5>
         {filteredData.map((option) => {
-          const { char_id, name, img, occupation, status, nickname } = option;
+          const { char_id, name, img, status, nickname } = option;
           return (
             <div key={char_id} className="col-3 mb-4">
-              <div style={{ height: 540 }} className="position-relative border rounded shadow-sm p-0">
+              <div style={{ height: 470 }} className="position-relative border rounded shadow-sm p-0">
                 <img src={img} alt="Char" className="img-fluid rounded-top w-100 h-100" style={{ maxHeight: 420 }} />
                 <h6 className="character-name">{name}</h6>
                 <div className="d-flex justify-content-between align-items-center px-3 pt-2">
@@ -105,12 +106,12 @@ const Characters: React.FC<RouteComponentProps> = () => {
                     )}
                   </p>
                 </div>
-                <div className="px-3 pt-2" style={{ fontSize: 14 }}>
+                {/* <div className="px-3 pt-2" style={{ fontSize: 14 }}>
                   <p className="m-0" style={{ fontSize: 12 }}>
                     Occupation:
                   </p>
                   <Occupation jobs={occupation} />
-                </div>
+                </div> */}
               </div>
             </div>
           );
