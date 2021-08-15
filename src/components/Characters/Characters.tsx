@@ -1,17 +1,18 @@
 import { useEffect, useState, ChangeEvent } from 'react';
+import { RouteComponentProps } from '@reach/router';
 
 // styles
 import './Characters.css';
 
 // images
-import { ReactComponent as AliveIcon } from '../../assets/alive.svg';
 import { ReactComponent as DeadIcon } from '../../assets/dead.svg';
+import { ReactComponent as AliveIcon } from '../../assets/alive.svg';
 
 import { Status, Character } from './types';
 
 const API_URL = 'https://www.breakingbadapi.com/api';
 
-const Characters = () => {
+const Characters: React.FC<RouteComponentProps> = () => {
   const [list, setList] = useState<Character[]>([]);
   const [filteredData, setFiltered] = useState<Character[]>([]);
   const [searchInput, setSearchInput] = useState('');

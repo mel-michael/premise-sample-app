@@ -1,12 +1,17 @@
-// import React from 'react';
-// import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Router } from '@reach/router';
 
 // components & styles
 import './App.css';
 import Characters from './components/Characters';
+import CharacterDetails from './components/CharacterDetails';
 
 function App() {
-  return <Characters />;
+  return (
+    <Router>
+      <Characters path="/" />
+      <CharacterDetails path="/character/:charId" />
+    </Router>
+  );
 }
 
 export default App;

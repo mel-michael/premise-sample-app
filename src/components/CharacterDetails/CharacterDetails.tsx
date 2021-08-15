@@ -1,3 +1,8 @@
-import React from "react";
+import { RouteComponentProps, useParams } from '@reach/router';
 
-export const CharacterDetails = {}
+const CharacterDetails: React.FC<RouteComponentProps> = () => {
+  const { charId } = useParams();
+  return <div>Character Details Page: {charId} </div>;
+};
+
+export default CharacterDetails;
