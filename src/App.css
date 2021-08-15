@@ -38,3 +38,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+.character-name {
+  position: absolute;
+  top: 270px;
+  left: 0.5rem;
+  color: white;
+}
