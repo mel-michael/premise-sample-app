@@ -6,6 +6,10 @@
 }
 
 .image-card {
-  padding: 0;
+  color: #424242;
   height: 470px;
+}
+
+.col-3 > a {
+  text-decoration: none;
 }
