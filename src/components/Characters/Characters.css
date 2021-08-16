@@ -4,3 +4,8 @@
   left: 1rem;
   color: white;
 }
+
+.image-card {
+  padding: 0;
+  height: 470px;
+}

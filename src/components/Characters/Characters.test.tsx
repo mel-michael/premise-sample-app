@@ -9,6 +9,8 @@ describe('Character', () => {
   });
 
   it('should render the title of the app', async () => {
+    expect.hasAssertions();
+
     const { getByText } = render(<App />);
 
     await waitFor(() => {

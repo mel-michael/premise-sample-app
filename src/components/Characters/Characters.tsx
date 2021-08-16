@@ -100,8 +100,8 @@ const Characters: React.FC<RouteComponentProps> = () => {
         {filteredData.map((option) => {
           const { char_id, name, img, status, nickname } = option;
           return (
-            <div key={char_id} className="col-3 mb-4">
-              <div style={{ height: 470 }} className="position-relative border rounded shadow-sm p-0">
+            <div key={char_id} className="col-3 mb-5">
+              <div className="image-card position-relative rounded shadow-sm p-0">
                 <img src={img} alt="Char" className="img-fluid rounded-top w-100 h-100" style={{ maxHeight: 420 }} />
                 <h6 className="character-name">{name}</h6>
                 <div className="d-flex justify-content-between align-items-center px-3 pt-2">
