@@ -1,5 +1,6 @@
 import { useEffect, useState, ChangeEvent } from 'react';
 import { RouteComponentProps } from '@reach/router';
+import BeatLoader from 'react-spinners/BeatLoader';
 
 // components & styles
 import './Characters.css';
@@ -10,6 +11,7 @@ import { Character } from './types';
 const API_URL = process.env.REACT_APP_API_URL;
 
 const Characters: React.FC<RouteComponentProps> = () => {
+  const [loading, setLoading] = useState(true);
   const [list, setList] = useState<Character[]>([]);
   const [filteredData, setFiltered] = useState<Character[]>([]);
   const [searchInput, setSearchInput] = useState('');
@@ -43,9 +45,11 @@ const Characters: React.FC<RouteComponentProps> = () => {
         .then((data) => {
           setList(data);
           setFiltered(data);
+          setLoading(false);
         })
         .catch((err) => {
           setError(true);
+          setLoading(false);
           console.error(err);
         });
     };
@@ -77,12 +81,17 @@ const Characters: React.FC<RouteComponentProps> = () => {
 
       <div className="row pb-6">
         <h5 className="m-3 p-0">All Characters</h5>
+        {loading && (
+          <div className="mt-6">
+            <BeatLoader color="#ccc" loading={loading} size={16} />
+          </div>
+        )}
 
-        {error ? (
+        {error && !loading ? (
           <p className="alert alert-danger mx-3">Oops! Unable to fetch Breaking Bad characters. Please try again</p>
         ) : null}
 
-        {!error && filteredData.length === 0 && <p className="alert alert-info mx-3">No data available</p>}
+        {!error && !loading && filteredData.length === 0 && <p className="alert alert-info mx-3">No data available</p>}
 
         {filteredData.length > 0 && <CharacterCard data={filteredData} />}
       </div>

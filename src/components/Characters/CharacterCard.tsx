@@ -1,4 +1,3 @@
-
 // styles
 import './Characters.css';
 
@@ -7,16 +6,6 @@ import { ReactComponent as DeadIcon } from '../../assets/dead.svg';
 import { ReactComponent as AliveIcon } from '../../assets/alive.svg';
 
 import { Status, Character } from './types';
-
-const Occupation = ({ jobs }: { jobs: string[] }): JSX.Element => (
-  <>
-    {jobs.map((job) => (
-      <span key={job} style={{ fontSize: 10, fontWeight: 400 }} className="badge bg-light text-dark">
-        {job}
-      </span>
-    ))}
-  </>
-);
 
 type CardProps = {
   data: Character[];
