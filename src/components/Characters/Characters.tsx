@@ -41,12 +41,15 @@ const Characters: React.FC<RouteComponentProps> = () => {
 
   useEffect(() => {
     const getAllChars = async () => {
-      fetch(`${API_URL}/characters`)
+      fetch(`${API_URL}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log('DATA::', data);
           setList(data);
           setFiltered(data);
+        })
+        .catch((err) => {
+          setError(true);
+          console.error(err);
         });
     };
 
@@ -87,6 +90,13 @@ const Characters: React.FC<RouteComponentProps> = () => {
 
       <div className="row pb-6">
         <h5 className="m-3 p-0">All Characters</h5>
+
+        {error ? (
+          <p className="alert alert-danger mx-3">Oops! Unable to fetch Breaking Bad characters. Please try again</p>
+        ) : null}
+
+        {!error && filteredData.length === 0 && <p className="alert alert-info mx-3">No data available</p>}
+
         {filteredData.map((option) => {
           const { char_id, name, img, status, nickname } = option;
           return (
