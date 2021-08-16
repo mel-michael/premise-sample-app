@@ -11,11 +11,10 @@ describe('Character', () => {
     jest.resetAllMocks();
   });
 
-  it('renders no data available', () => {
+  it('renders all character subtitle', () => {
     expect.hasAssertions();
     const { getByText } = render(<Characters />);
-
-    expect(getByText(/No data/)).toBeInTheDocument();
+    expect(getByText(/All Characters/)).toBeInTheDocument();
   });
 
   it('renders all breaking bad characters', () => {
