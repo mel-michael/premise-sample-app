@@ -10,13 +10,13 @@ import { ReactComponent as AliveIcon } from '../../assets/alive.svg';
 
 import { Status, Character } from './types';
 
-// TODO: USe .env
-const API_URL = 'https://www.breakingbadapi.com/api';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const Characters: React.FC<RouteComponentProps> = () => {
   const [list, setList] = useState<Character[]>([]);
   const [filteredData, setFiltered] = useState<Character[]>([]);
   const [searchInput, setSearchInput] = useState('');
+  const [error, setError] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
