@@ -1,5 +1,3 @@
-// import { useEffect, useState, ChangeEvent } from 'react';
-// import { RouteComponentProps } from '@reach/router';
 
 // styles
 import './Characters.css';
