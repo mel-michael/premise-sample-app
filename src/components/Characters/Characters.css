@@ -7,7 +7,23 @@
 
 .image-card {
   color: #424242;
-  height: 470px;
+  height: 420px;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease;
+  opacity: 0.9;
+  background: rgba(0, 0, 0, 1);
+}
+
+.image-overlay:hover {
+  transition: 0.5s ease;
+  opacity: 1;
 }
 
 .col-3 > a {
